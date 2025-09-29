@@ -11,8 +11,8 @@
     <groupId>be.ucll.backend2</groupId>
     <artifactId>validation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>08-Validation</name>
-    <description>08-Validation</description>
+    <name>Validation</name>
+    <description>Validation</description>
     <url/>
     <licenses>
         <license/>
