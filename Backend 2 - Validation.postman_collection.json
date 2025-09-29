@@ -7,26 +7,26 @@
 	},
 	"item": [
 		{
-			"name": "GET /api/v1/actor",
+			"name": "GET /api/v1/actors",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/api/v1/actor",
+					"raw": "{{host}}/api/v1/actors",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"actor"
+						"actors"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "POST /api/v1/actor",
+			"name": "POST /api/v1/actors",
 			"event": [
 				{
 					"listen": "test",
@@ -35,7 +35,8 @@
 							"pm.collectionVariables.set(\"actor_id\", pm.response.json().id);"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -52,21 +53,21 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/v1/actor",
+					"raw": "{{host}}/api/v1/actors",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"actor"
+						"actors"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "POST /api/v1/actor (empty name)",
+			"name": "POST /api/v1/actors (empty name)",
 			"event": [
 				{
 					"listen": "test",
@@ -75,7 +76,8 @@
 							"pm.collectionVariables.set(\"actor_id\", pm.response.json().id);"
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -92,33 +94,33 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/v1/actor",
+					"raw": "{{host}}/api/v1/actors",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"actor"
+						"actors"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET /api/v1/actor/{actor_id}",
+			"name": "GET /api/v1/actors/{actor_id}",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/api/v1/actor/{{actor_id}}",
+					"raw": "{{host}}/api/v1/actors/{{actor_id}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"actor",
+						"actors",
 						"{{actor_id}}"
 					]
 				}
@@ -126,7 +128,7 @@
 			"response": []
 		},
 		{
-			"name": "PUT /api/v1/actor/{actor_id}",
+			"name": "PUT /api/v1/actors/{actor_id}",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -140,14 +142,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}/api/v1/actor/{{actor_id}}",
+					"raw": "{{host}}/api/v1/actors/{{actor_id}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"actor",
+						"actors",
 						"{{actor_id}}"
 					]
 				}
@@ -155,19 +157,19 @@
 			"response": []
 		},
 		{
-			"name": "DELETE /api/v1/actor/{actor_id}",
+			"name": "DELETE /api/v1/actors/{actor_id}",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/api/v1/actor/{{actor_id}}",
+					"raw": "{{host}}/api/v1/actors/{{actor_id}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"actor",
+						"actors",
 						"{{actor_id}}"
 					]
 				}
@@ -175,38 +177,38 @@
 			"response": []
 		},
 		{
-			"name": "GET /api/v1/movie",
+			"name": "GET /api/v1/movies",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/api/v1/movie",
+					"raw": "{{host}}/api/v1/movies",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"movie"
+						"movies"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "GET /api/v1/movie with start year",
+			"name": "GET /api/v1/movies with start year",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/api/v1/movie?startYear=2000&endYear=2010",
+					"raw": "{{host}}/api/v1/movies?startYear=2000&endYear=2010",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"movie"
+						"movies"
 					],
 					"query": [
 						{
@@ -223,19 +225,19 @@
 			"response": []
 		},
 		{
-			"name": "GET /api/v1/movie with start year before 1888",
+			"name": "GET /api/v1/movies with start year before 1888",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}/api/v1/movie?startYear=1800&endYear=2000",
+					"raw": "{{host}}/api/v1/movies?startYear=1800&endYear=2000",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"movie"
+						"movies"
 					],
 					"query": [
 						{
