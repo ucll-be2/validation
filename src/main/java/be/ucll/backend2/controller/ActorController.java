@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/actor")
+@RequestMapping("/api/v1/actors")
 public class ActorController {
     private final ActorService actorService;
 
