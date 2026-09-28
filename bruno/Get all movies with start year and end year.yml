@@ -1,0 +1,23 @@
+info:
+  name: Get all movies with start year and end year
+  type: http
+  seq: 8
+
+http:
+  method: GET
+  url: "{{baseUrl}}/api/v1/movies?startYear=2000&endYear=2010"
+  params:
+    - name: startYear
+      value: "2000"
+      type: query
+    - name: endYear
+      value: "2010"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

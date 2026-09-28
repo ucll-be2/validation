@@ -6,17 +6,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureRestTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.test.web.servlet.client.RestTestClient;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureWebTestClient
+@AutoConfigureRestTestClient
 @Sql("classpath:schema.sql")
 public class HttpTest {
     @Autowired
-    private WebTestClient client;
+    private RestTestClient client;
 
     @Autowired
     private ActorRepository actorRepository;
@@ -90,11 +90,11 @@ public class HttpTest {
         client.post()
                 .uri("/api/v1/actors")
                 .header("Content-Type", "application/json")
-                .bodyValue("""
-                           {
-                             "name": "Jos Bosmans"
-                           }
-                           """)
+                .body("""
+                      {
+                        "name": "Jos Bosmans"
+                      }
+                      """)
                 .exchange()
                 .expectStatus().isCreated()
                 .expectBody()
@@ -114,11 +114,11 @@ public class HttpTest {
         client.post()
                 .uri("/api/v1/actors")
                 .header("Content-Type", "application/json")
-                .bodyValue("""
-                        {
-                          "name": "   "
-                        }
-                        """)
+                .body("""
+                      {
+                        "name": "   "
+                      }
+                      """)
                 .exchange()
                 .expectStatus().isBadRequest()
                 .expectBody()
@@ -141,11 +141,11 @@ public class HttpTest {
         client.put()
                 .uri("/api/v1/actors/1")
                 .header("Content-Type", "application/json")
-                .bodyValue("""
-                           {
-                             "name": "Clement Peerens"
-                           }
-                           """)
+                .body("""
+                      {
+                        "name": "Clement Peerens"
+                      }
+                      """)
                 .exchange()
                 .expectStatus().is2xxSuccessful()
                 .expectBody()
