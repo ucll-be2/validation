@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Movie {
@@ -28,17 +28,15 @@ public class Movie {
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id")
     )
-    private Set<Actor> actors;
+    private List<Actor> actors = new ArrayList<>();
 
     protected Movie() {
-        this.actors = new HashSet<>();
     }
 
     public Movie(String title, String director, int year) {
         this.title = title;
         this.director = director;
         this.year = year;
-        this.actors = new HashSet<>();
     }
 
     public Long getId() {
@@ -73,7 +71,7 @@ public class Movie {
         this.year = year;
     }
 
-    public Set<Actor> getActors() {
+    public List<Actor> getActors() {
         return actors;
     }
 

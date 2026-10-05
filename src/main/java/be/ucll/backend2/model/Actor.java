@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Actor {
@@ -19,15 +19,13 @@ public class Actor {
 
     @ManyToMany(mappedBy = "actors")
     @JsonIgnore
-    private Set<Movie> movies;
+    private List<Movie> movies = new ArrayList<>();
 
     protected Actor() {
-        this.movies = new HashSet<>();
     }
 
     public Actor(String name) {
         this.name = name;
-        this.movies = new HashSet<>();
     }
 
     public Long getId() {
@@ -46,7 +44,7 @@ public class Actor {
         this.name = name;
     }
 
-    public Set<Movie> getMovies() {
+    public List<Movie> getMovies() {
         return movies;
     }
 
